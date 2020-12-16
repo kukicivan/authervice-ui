@@ -1,0 +1,50 @@
+<form [formGroup]="loginForm" class="mt-20">
+  <mat-form-field id="email-form-field" class="w-100 mt-20 block" appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput type="text" class="cheza-input" formControlName="username"/>
+    <mat-error>
+      {{ loginForm?.controls?.username?.errors | json  }}
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field id="password-form-field" class="w-100 block mt-5" appearance="outline">
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      type="password"
+      class="cheza-input"
+      formControlName="password"
+    />
+    <mat-error>
+      {{ loginForm?.controls?.password?.errors | json  }}
+    </mat-error>
+
+  </mat-form-field>
+
+  <div class="flex pt-15 pb-15">
+    <button
+      mat-flat-button
+      color="primary"
+      id="login-submit-button"
+      class="text-uppercase pt-10 pb-10 button-segue"
+      (click)="login()"
+      [disabled]="loginForm.invalid || null"
+    >
+      Login
+    </button>
+  </div>
+</form>
+
+
+<!--<a-->
+<!--  role="link"-->
+<!--  id="auth-register-button"-->
+<!--  class="pt-10 pb-10 mat-button"-->
+<!--  (click)="register()"-->
+<!--&gt;Register</a>-->
+
+<!--<a-->
+<!--  role="link"-->
+<!--  id="auth-forgot-password-button"-->
+<!--  class="pt-10 pb-10 mat-button"-->
+<!--  (click)="forgotPassword()"-->
+<!--&gt;Forgot Password</a>-->
