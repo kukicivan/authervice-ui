@@ -1,1 +1,61 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@600;700;800&display=swap');
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.auth-form {
+
+  .mat-card {
+    width: 400px;
+  }
+
+  .mat-form-field {
+    width: 100%;
+  }
+
+}
+
+$header-height: 56px;
+
+.logo {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  padding: 0 0 0 10px;
+  height: $header-height;
+
+  h1 {
+    font-family: 'Exo', sans-serif;
+    line-height: $header-height - 8px;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+.mat-card {
+  margin: 40px auto 0 auto;
+  width: 400px;
+
+  .mat-form-field {
+    width: 100%;
+  }
+}
+
+.mat-table {
+  width: 100%;
+}
