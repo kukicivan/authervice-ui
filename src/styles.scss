@@ -35,7 +35,7 @@ $header-height: 56px;
   h1 {
     font-family: 'Exo', sans-serif;
     line-height: $header-height - 8px;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     margin: 0;
     padding: 0;
@@ -58,4 +58,18 @@ $header-height: 56px;
 
 .mat-table {
   width: 100%;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-icon-button {
+  padding: 0;
+  min-width: 0;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  line-height: 40px;
+  border-radius: 50%;
 }
