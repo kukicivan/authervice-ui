@@ -1,27 +1,34 @@
 <!-- Toolbar -->
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-<!--    <button mat-icon-button>-->
-<!--      <mat-icon>menu</mat-icon>-->
-<!--    </button>-->
+    <!--    <button mat-icon-button>-->
+    <!--      <mat-icon>menu</mat-icon>-->
+    <!--    </button>-->
     <div class="logo">
       <h1><a [routerLink]="'/'"><span>Build A Team</span></a></h1>
     </div>
-    <span class="menu-spacer"></span>
-    <div>
-      <div *ngIf="authenticationService.isLoggedIn">
-<!--        <a mat-button [routerLink]="'/member-dashboard'"> Dashboard </a>-->
-        <a mat-button [routerLink]="'/member-profile'"> Profile </a>
-<!--        <a mat-button [routerLink]="'/contract'"> Contract </a>-->
-<!--        <a mat-button [routerLink]="'/create-team'"> Create A Team </a>-->
-        <a mat-button (click)="logOut()"> Logout </a>
 
-      </div>
-      <div *ngIf="!authenticationService.isLoggedIn">
-<!--        <a mat-button [routerLink]="'/login'"> Login </a>-->
-<!--        <a mat-button [routerLink]="'/register'" *ngIf="!authenticationService.isLoggedIn"> Register </a>-->
-<!--        <a mat-button [routerLink]="'/forgot-password'" *ngIf="!authenticationService.isLoggedIn"> Forgot password </a>-->
-      </div>
+    <span class="example-spacer" *ngIf="authenticationService.isLoggedIn"></span>
+
+    <!--      <button mat-icon-button class="example-icon">-->
+    <!--      <div mat-card-avatar class="example-header-image">-->
+    <a mat-button [routerLink]="'/member-profile'" class="example-icon" *ngIf="authenticationService.isLoggedIn">
+      Your Profile
+    </a>
+    <!--      </div>-->
+    <!--      </button>-->
+
+    <!--        <a mat-button [routerLink]="'/member-dashboard'"> Dashboard </a>-->
+    <!--         </a>-->
+    <!--        <a mat-button [routerLink]="'/contract'"> Contract </a>-->
+    <!--        <a mat-button [routerLink]="'/create-team'"> Create A Team </a>-->
+    <a mat-button (click)="logOut()" *ngIf="authenticationService.isLoggedIn"> Logout </a>
+
+    <div *ngIf="!authenticationService.isLoggedIn">
+
+      <!--        <a mat-button [routerLink]="'/login'"> Login </a>-->
+      <!--        <a mat-button [routerLink]="'/register'" *ngIf="!authenticationService.isLoggedIn"> Register </a>-->
+      <!--        <a mat-button [routerLink]="'/forgot-password'" *ngIf="!authenticationService.isLoggedIn"> Forgot password </a>-->
     </div>
   </mat-toolbar-row>
 
