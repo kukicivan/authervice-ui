@@ -11,6 +11,8 @@ import { AuthenticationService } from "./shared-library/services/authentication.
 export class AppComponent implements OnInit {
   title = 'build-a-team-ui';
 
+  public tokenData: any
+
   constructor(
     public authenticationService: AuthenticationService,
     private router: Router,
@@ -28,6 +30,16 @@ export class AppComponent implements OnInit {
   public logOut(): void {
     this.authenticationService.logOut();
     this.router.navigate(['/login']);
+
+  }
+
+  getTokenData(): any {
+    const tokenData = this.authenticationService.tokenData();
+    // print(tokenData)
+    this.tokenData = tokenData
+
+    // console.log( this.tokenData)
+    return tokenData
 
   }
 
