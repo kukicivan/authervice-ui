@@ -1,9 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { AuthenticationService } from "../shared-library/services/authentication.service";
-import { User } from "../shared-library/models/user.model";
-import { map } from "rxjs/operators";
-import { ActivatedRoute, Router } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from '../shared-library/services/authentication.service';
+import { User } from '../shared-library/models/user.model';
+import { map } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  login() {
+  login(): void {
     const payload = {
       username: this.loginForm.controls.username.value,
       password: this.loginForm.controls.password.value,
@@ -44,20 +44,20 @@ export class LoginComponent implements OnInit {
       // console.log("result", result)
       if (result && result.access_token) {
         this.authenticationService.setToken(result.access_token);
-        // console.log("Access token stored success", {payload: this.authenticationService.tokenData});
+        console.log('Access token stored success', {payload: this.authenticationService.tokenData});
         this.router.navigate(['/member-profile']);
       } else {
-        console.log("access token Failure", {payload: result});
+        console.log('access token Failure', {payload: result});
       }
-    })
+    });
   }
 
-  register() {
-    console.log("Register Component")
+  register(): void {
+    console.log('Register Component');
   }
 
-  forgotPassword() {
-    console.log("Forgot Password")
+  forgotPassword(): void {
+    console.log('Forgot Password');
   }
 
   // chezaLogin(payload: any) {

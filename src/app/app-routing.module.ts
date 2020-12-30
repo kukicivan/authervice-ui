@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MemberProfileComponent } from "./member-profile/member-profile.component";
-import { CompanyProfileComponent } from "./company-profile/company-profile.component";
-import { AuthFormComponent } from "./auth-form/auth-form.component";
-import { MemberDashboardComponent } from "./member-dashboard/member-dashboard.component";
-import { CreateTeamComponent } from "./create-team/create-team.component";
-import { LogoutComponent } from "./logout/logout.component";
-import { AuthGuard } from "./auth.guard";
-import { RegisterComponent } from "./register/register.component";
-import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
-import { ContractComponent } from "./contract/contract.component";
+import { MemberProfileComponent } from './member-profile/member-profile.component';
+import { CompanyProfileComponent } from './company-profile/company-profile.component';
+import { AuthFormComponent } from './auth-form/auth-form.component';
+import { MemberDashboardComponent } from './member-dashboard/member-dashboard.component';
+import { CreateTeamComponent } from './create-team/create-team.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './auth.guard';
+import { RegisterComponent } from './register/register.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ContractComponent } from './contract/contract.component';
 
 const routes: Routes = [
 
