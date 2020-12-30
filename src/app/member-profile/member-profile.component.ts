@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from "@angular/router";
-import { AuthenticationService } from "../shared-library/services/authentication.service";
-import { User } from "../shared-library/models/user.model";
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '../shared-library/services/authentication.service';
+import { User } from '../shared-library/models/user.model';
 
 @Component({
   selector: 'app-member-profile',
@@ -12,19 +12,19 @@ export class MemberProfileComponent implements OnInit {
   user: User | undefined;
 
   constructor(
-    private _authenticationService: AuthenticationService,
+    private authenticationService: AuthenticationService,
     private route: ActivatedRoute,
     private router: Router,
   ) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getMemberDetails();
   }
 
-  getMemberDetails() {
-    const userId = this._authenticationService.tokenData.user_id;
-    this._authenticationService.getUserProfile(userId).subscribe((user: User) => {
+  getMemberDetails(): void {
+    const userId = this.authenticationService.tokenData.user_id;
+    this.authenticationService.getUserProfile(userId).subscribe((user: User) => {
       this.user = user;
     });
   }

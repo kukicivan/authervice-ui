@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { first, map } from "rxjs/operators";
+import { first, map } from 'rxjs/operators';
 
 
-import jwt_decode from "jwt-decode";
-import { environment } from "../../../environments/environment";
+import jwt_decode from 'jwt-decode';
+import { environment } from '../../../environments/environment';
 
-import { User } from "../models/user.model";
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -15,9 +15,9 @@ import { User } from "../models/user.model";
 export class AuthenticationService {
   api = environment.api;
 
-  private _isLoggedIn = false;
+  private isLoggedInVar = false;
 
-  constructor(private _http: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
   setToken(accessToken: string): void {
@@ -35,27 +35,27 @@ export class AuthenticationService {
   }
 
   get tokenData(): any | null {
-    const access_token = localStorage.getItem('access_token');
-    if (access_token) {
-      const decoded = jwt_decode(access_token);
+    const accessToken = localStorage.getItem('access_token');
+    if (accessToken) {
+      const decoded = jwt_decode(accessToken);
       return decoded;
     }
 
-    return null
+    return null;
   }
 
   // Resolves performance issue for calling methods from Angular template
   get isLoggedIn(): boolean {
-    return this._isLoggedIn;
+    return this.isLoggedInVar;
   }
 
   set isLoggedIn(value: boolean) {
-    this._isLoggedIn = value;
+    this.isLoggedInVar = value;
   }
 
   public logOut(): void {
     this.removeToken();
-    console.log("You have been logged out of the system.")
+    console.log('You have been logged out of the system.');
   }
 
   // @Alerts({showOnsuccess: true, successText: SuccessResponses.LOGIN_SUCCESS})
@@ -69,7 +69,7 @@ export class AuthenticationService {
     formData.append('username', username);
     formData.append('password', password);
 
-    return this._http
+    return this.http
       .post(`${this.api}/auth/login`, formData)
       .pipe(map((data: any) => data));
   }
@@ -84,7 +84,7 @@ export class AuthenticationService {
 
   // @Alerts()
   getUserProfile(id: any): Observable<User> {
-    return this._http.get(`${this.api}/users/me`).pipe(
+    return this.http.get(`${this.api}/users/me`).pipe(
       map((data: any) => {
         return new User(data);
       })
