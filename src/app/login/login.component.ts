@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {
     this.loginForm = this._fb.group({
-      username: ['ivan.kukic@gmail.com', [Validators.required]],
+      username: ['user@ibuildteam.com', [Validators.required]],
       password: ['akoivoandric', Validators.required],
     });
   }
@@ -41,13 +41,10 @@ export class LoginComponent implements OnInit {
     };
 
     this.authenticationService.login(payload.username, payload.password).subscribe((result: any) => {
-      // console.log("result", result)
       if (result && result.access_token) {
         this.authenticationService.setToken(result.access_token);
-        console.log('Access token stored success', {payload: this.authenticationService.tokenData});
         this.router.navigate(['/member-profile']);
       } else {
-        console.log('access token Failure', {payload: result});
       }
     });
   }
@@ -60,26 +57,5 @@ export class LoginComponent implements OnInit {
     console.log('Forgot Password');
   }
 
-  // chezaLogin(payload: any) {
-  //   console.log("cheza login payload:", payload)
-  //
-  //   this._authenticationService.login(payload.username, payload.password).pipe(
-  //     map((user: User) => {
-  //       console.log("cheza login user:", user)
-  //       // if (user && user.token) {
-  //       //   this._authenticationService.token = user && user.token;
-  //       //   console.log("loginSuccess", {payload: user});
-  //       // } else {
-  //       //   console.log("loginFailure", {payload: user});
-  //       // }
-  //     })
-  //   ).subscribe()
-  // }
-
-  // chezaGetUser() {
-  //   this._authenticationService.getUser().pipe(
-  //     map((user: User) => console.log(user)),
-  //   )
-  // }
 
 }

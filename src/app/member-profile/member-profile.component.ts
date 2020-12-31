@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../shared-library/services/authentication.service';
 import { User } from '../shared-library/models/user.model';
 
@@ -13,8 +12,6 @@ export class MemberProfileComponent implements OnInit {
 
   constructor(
     private authenticationService: AuthenticationService,
-    private route: ActivatedRoute,
-    private router: Router,
   ) {
   }
 
