@@ -16,7 +16,6 @@ export class LogoutComponent implements OnInit {
 
   public logOut(): void {
     localStorage.removeItem('token');
-    console.log("You have been logged out of the system.")
   }
 
 }
